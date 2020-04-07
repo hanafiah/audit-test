@@ -12,10 +12,14 @@ class PemilihSeeder extends Seeder
     public function run()
     {
 
-        // $x=10 ; generate 1 juta pemilih
-        for ($x = 1; $x <= 10; $x++) {
-            echo "creating batch $x ++++++ " . ($x * 10000) . PHP_EOL;
-            factory(App\Pemilih::class, 10000)->create();
+
+        $total_row = 30000000;
+
+        $chunk = 1000;
+        $paging = $total_row / $chunk;
+        for ($x = 1; $x <= $paging; $x++) {
+            echo "creating batch $x ++++++ " . ($x * $chunk) . PHP_EOL;
+            factory(App\Pemilih::class, $chunk)->create();
         }
 
         $faker = Faker\Factory::create();
