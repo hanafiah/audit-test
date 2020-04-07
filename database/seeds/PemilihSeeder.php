@@ -14,7 +14,7 @@ class PemilihSeeder extends Seeder
 
         // $x=10 ; generate 1 juta pemilih
         for ($x = 1; $x <= 10; $x++) {
-            echo "creating batch $x ++++++" . PHP_EOL;
+            echo "creating batch $x ++++++ " . ($x * 10000) . PHP_EOL;
             factory(App\Pemilih::class, 10000)->create();
         }
 
