@@ -17,6 +17,9 @@ class PemilihSeeder extends Seeder
 
         $chunk = 1000;
         $paging = $total_row / $chunk;
+        /**
+         * Generate pemilih
+         */
         for ($x = 1; $x <= $paging; $x++) {
             echo "creating batch $x ++++++ " . ($x * $chunk) . PHP_EOL;
             factory(App\Pemilih::class, $chunk)->create();
@@ -24,6 +27,10 @@ class PemilihSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
+        /**
+         * Simulate pemilih update their address
+         * max 10 times
+         */
         $i = 1;
         App\Pemilih::chunk(1000, function ($pemilih) use ($faker, $i) {
             echo '=======' . PHP_EOL;
