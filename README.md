@@ -1,3 +1,8 @@
+## AMARAN ##
+sila ubah seeding row . default 30 juta rekod 
+https://github.com/hanafiah/audit-test/blob/master/database/seeds/PemilihSeeder.php#L16
+
+
 ## env ##
 
 using mssql
