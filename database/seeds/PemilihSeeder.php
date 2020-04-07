@@ -18,7 +18,7 @@ class PemilihSeeder extends Seeder
 
         $pemilih = App\Pemilih::all();
         foreach ($pemilih as $row) {
-            $rand = rand(0, 30);
+            $rand = rand(0, 10);
             echo $row->id . PHP_EOL;
             for ($x = 0; $x <= $rand; $x++) {
                 $row->alamat1 = $faker->secondaryAddress;
