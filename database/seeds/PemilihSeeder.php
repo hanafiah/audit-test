@@ -12,22 +12,29 @@ class PemilihSeeder extends Seeder
     public function run()
     {
 
-        $user = factory(App\Pemilih::class, 10)->create();
+        // $x=10 ; generate 1 juta pemilih
+        for ($x = 1; $x <= 10; $x++) {
+            echo "creating batch $x ++++++" . PHP_EOL;
+            factory(App\Pemilih::class, 10000)->create();
+        }
 
         $faker = Faker\Factory::create();
 
-        $pemilih = App\Pemilih::all();
-        foreach ($pemilih as $row) {
-            $rand = rand(0, 10);
-            echo $row->id . PHP_EOL;
-            for ($x = 0; $x <= $rand; $x++) {
-                $row->alamat1 = $faker->secondaryAddress;
-                $row->alamat2 = $faker->streetAddress;
-                $row->poskod = $faker->postcode;
-                $row->bandar = $faker->city;
-                $row->kodNegeri = $faker->state;
-                $row->save();
+        $i = 1;
+        App\Pemilih::chunk(1000, function ($pemilih) use ($faker, $i) {
+            echo '=======' . PHP_EOL;
+            foreach ($pemilih as $row) {
+                $rand = rand(0, 10);
+                echo $row->id . PHP_EOL;
+                for ($x = 0; $x <= $rand; $x++) {
+                    $row->alamat1 = $faker->secondaryAddress;
+                    $row->alamat2 = $faker->streetAddress;
+                    $row->poskod = $faker->postcode;
+                    $row->bandar = $faker->city;
+                    $row->kodNegeri = $faker->state;
+                    $row->save();
+                }
             }
-        }
+        });
     }
 }
