@@ -14,3 +14,6 @@ run migrateion with seeder
 ```
 php artisan migrate:refresh --seed
 ```
+
+test url
+http://localhost/pemilih
