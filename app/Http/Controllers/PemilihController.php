@@ -16,7 +16,7 @@ class PemilihController extends Controller
      */
     public function index()
     {
-        $pemilih = Pemilih::paginate(10);
+        $pemilih = Pemilih::paginate(6);
         return view('pemilih.index', compact('pemilih'));
     }
 
