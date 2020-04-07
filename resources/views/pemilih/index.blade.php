@@ -66,6 +66,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $pemilih->links() }}
     </div>
 </div>
 @endsection
