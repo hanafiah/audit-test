@@ -13,7 +13,7 @@ class PemilihSeeder extends Seeder
     {
 
 
-        $total_row = 30000000;
+        $total_row = 3000;
 
         $chunk = 1000;
         $paging = $total_row / $chunk;
